@@ -1,0 +1,11 @@
+package com.actitime.pageclass;
+
+import org.openqa.selenium.By;
+
+public class TasksPage {
+	public void clickOnTasks() {
+		driver.findElement(By.xpath("//a[@href='/tasks/tasklist.do']")).click();
+		driver.findElement(By.xpath("//a[@href='/tasks/tasklist.do']")).click();
+	}
+
+}

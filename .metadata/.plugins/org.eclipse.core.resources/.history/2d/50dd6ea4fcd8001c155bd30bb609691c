@@ -1,0 +1,26 @@
+package com.actitime.tasks;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import com.actitime.testbase.BaseClass;
+
+public class DeleteCustomer extends BaseClass{
+	 @Test
+	  public void testDeleteCustomer() {
+		 driver.findElement(By.xpath("//a[@href='/tasks/tasklist.do']")).click();
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 driver.findElement(By.xpath("(//input[@placeholder='Start typing name ...'])[1]")).sendKeys("Rithika21");
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 driver.findElement(By.xpath("(//span[text()='Rithika'])")).click();
+		 //driver.findElement(By.xpath("(//div[@class='node customerNode editable selected'] //div[@class='editButton'])")).click();
+		 driver.findElement(By.xpath("//span[text()='Rithika']/../../..//div[@class='editButton']")).click(); 
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 driver.findElement(By.xpath("(//div[text()='ACTIONS'])[1]")).click();
+		 driver.findElement(By.xpath("(//div[text()='Delete'])[2]")).click();  
+		 driver.findElement(By.xpath("(//span[text()='Delete permanently'])")).click();
+		 System.out.println("Finished delete customer");
+	  }
+}

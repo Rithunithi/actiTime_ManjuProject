@@ -1,0 +1,9 @@
+package com.actitime.testbase;
+
+import org.testng.annotations.Test;
+
+public class BaseClass {
+  @Test
+  public void f() {
+  }
+}

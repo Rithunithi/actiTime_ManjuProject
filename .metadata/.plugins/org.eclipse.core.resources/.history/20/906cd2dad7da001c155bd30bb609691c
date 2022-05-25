@@ -1,0 +1,32 @@
+ package com.actitime.tasks;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import com.actitime.testbase.BaseClass;
+import com.actitime.testbase.ExcelLibrary;
+
+public class CreateCustomer extends BaseClass{
+  @Test
+  public void testCreateCustomer() {
+	  driver.findElement(By.xpath("//a[@href='/tasks/tasklist.do']")).click();
+	  driver.findElement(By.xpath("//div[text()='Add New']")).click();
+	  driver.findElement(By.xpath("//div[text()='+ New Customer']")).click();
+	  
+	  ExcelLibrary xlib1=new ExcelLibrary();
+	  String cn=xlib1.getExcelData("CreateCustomer", 1, 0);
+	  String cd=xlib1.getExcelData("CreateCustomer", 1, 1);
+	  
+	  
+	  driver.findElement(By.xpath("(//input[@placeholder='Enter Customer Name'])[2]")).sendKeys(cn);
+	  driver.findElement(By.xpath("//textarea[@placeholder='Enter Customer Description']")).sendKeys(cd);
+	  driver.findElement(By.xpath("//div[text()='Create Customer']")).click(); 
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  System.out.println("Finished create customer");
+	  //driver.findElement(By.id("logoutLink")).click();
+	  //System.out.println("Finished CR logoutLink");
+  }
+  
+}

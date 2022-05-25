@@ -1,0 +1,25 @@
+package com.actitime.users;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import com.actitime.testbase.BaseClass;
+
+public class CreateUser extends BaseClass{
+	 @Test
+	  public void testCreateUser() {
+		 driver.findElement(By.id("container_users")).click();
+		 driver.findElement(By.xpath("//div[text()='New User']")).click();
+		 System.out.println("This is Test");
+		 driver.findElement(By.id("createUserPanel_firstNameField")).sendKeys("Manju");
+		 driver.findElement(By.id("createUserPanel_lastNameField")).sendKeys("Ramesh");
+		 driver.findElement(By.id("createUserPanel_emailField")).sendKeys("manjukamaraj84@gmail.com");
+		 System.out.println("This is Department");
+		 driver.findElement(By.xpath("(//div[text()='-- department not assigned --'])[1]")).click();
+		 System.out.println("This is Production");
+		 driver.findElement(By.xpath("//div[text()='&nbsp']")).click();
+		 driver.findElement(By.xpath("(//div[text()='Production'])[5]")).click();
+		 
+		
+	  }
+}
