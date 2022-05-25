@@ -1,0 +1,28 @@
+package com.actitime.users;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import com.actitime.testbase.BaseClass;
+import com.actitime.testbase.ExcelLibrary;
+
+public class DeleteUser extends BaseClass{
+	 @Test
+	  public void testDeleteUser() throws InterruptedException {
+		 driver.findElement(By.id("container_users")).click();
+		 driver.findElement(By.xpath(("//th[@class='userName secondLayer']/../.. /..//div[@class='icon']"))).click();
+		 ExcelLibrary xlib4=new ExcelLibrary();
+		 String du=xlib4.getExcelData("DeleteUser", 1, 0);
+		 driver.findElement(By.xpath("//div[@class='inputPlaceholder animShowWordsField']/..//input[@placeholder='Start typing name...']")).sendKeys(du);
+		 System.out.println("DeleteUser");
+		 //driver.findElement(By.xpath("//span[text()=du]")).click();
+		 driver.findElement(By.xpath("//span[@class='userInOtherProduct']")).click();
+		 System.out.println("DeleteUser1");
+		 driver.findElement(By.xpath("//div[text()='DELETE']")).click();
+		 System.out.println("DeleteUser2");
+		 Alert al = driver.switchTo().alert();
+	     al.accept();
+	     //Thread.sleep(3000);
+	  }
+}
